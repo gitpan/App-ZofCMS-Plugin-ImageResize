@@ -10,7 +10,7 @@ use File::Copy;
 
 use base 'App::ZofCMS::Plugin::Base';
 
-our $VERSION = '0.0101';
+our $VERSION = '0.0102';
 
 sub _key { 'plug_image_resize' }
 sub _defaults {
@@ -26,12 +26,12 @@ sub _defaults {
 sub _do {
     my ( $self, $conf, $t, $q, $config ) = @_;
 
-    return
-        unless defined $conf->{images};
-
     if ( ref $conf->{images} eq 'CODE' ) {
         $conf->{images} = $conf->{images}->( $t, $q, $config );
     }
+
+    return
+        unless defined $conf->{images};
 
     my ( $cell, $key, $images ) = @$conf{qw/cell key images/};
 
@@ -222,7 +222,7 @@ ZofCMS Template take precedence. Possible keys/values are as follows:
             image2 => [ qw/3300 3300 frog.png/ ],
         },
 
-        image => [
+        images => [
             [ qw/1000 1000 frog.png/ ],
             [ qw/110 100 frog.png 0 1/ ],
             {
@@ -235,8 +235,18 @@ ZofCMS Template take precedence. Possible keys/values are as follows:
             },
         ],
 
+        images => sub {
+            my ( $t, $q, $config ) = @_;
+            return [ qw/100 100 frog.png/ ];
+        },
+
 B<Mandatory>. The C<images> key is the only optional key. Its value can be either an
-arrayref, an arrayref of arrayrefs/hashrefs or a hashref.
+arrayref, an arrayref of arrayrefs/hashrefs, subref or a hashref.
+
+If the value is a subref, the C<@_> will contain (in the following order): ZofCMS Template
+hashref, query parameters hashref, L<App::ZofCMS::Config> object. The return value
+of the sub will be assigned to C<images> key; if it's C<undef> then plugin will not execute
+further.
 
 When value is a hashref, it tells the plugin to resize several images and keys will represent
 the names of the keys in the result (see OUTPUT section below) and values are the image

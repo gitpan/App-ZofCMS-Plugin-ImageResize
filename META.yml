@@ -1,6 +1,6 @@
 ---
 name: App-ZofCMS-Plugin-ImageResize
-version: 0.0101
+version: 0.0102
 author:
   - "'Zoffix <'zoffix@cpan.org'>"
 abstract: Plugin to resize images
@@ -18,7 +18,7 @@ build_requires:
 provides:
   App::ZofCMS::Plugin::ImageResize:
     file: lib/App/ZofCMS/Plugin/ImageResize.pm
-    version: 0.0101
+    version: 0.0102
 generated_by: Module::Build version 0.33
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.4.html
