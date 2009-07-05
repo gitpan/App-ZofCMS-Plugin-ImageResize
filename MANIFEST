@@ -1,0 +1,12 @@
+Build.PL
+Changes
+MANIFEST
+README
+lib/App/ZofCMS/Plugin/ImageResize.pm
+t/00-load.t
+t/pod-coverage.t
+t/pod.t
+t/01-plugin.t
+examples/index.tmpl
+Makefile.PL
+META.yml

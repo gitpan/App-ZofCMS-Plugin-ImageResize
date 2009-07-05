@@ -1,0 +1,14 @@
+{
+    body => \'index.tmpl',
+    title => '',
+
+    plugins => [
+        { ImageResize => 2000 },
+    ],
+
+    plug_image_resize => {
+        images => [
+            [ qw/3300 3300 frog.png 0 0/ ]
+        ],
+    },
+}
