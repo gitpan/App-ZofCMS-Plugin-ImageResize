@@ -10,7 +10,7 @@ use File::Copy;
 
 use base 'App::ZofCMS::Plugin::Base';
 
-our $VERSION = '0.0102';
+our $VERSION = '0.0103';
 
 sub _key { 'plug_image_resize' }
 sub _defaults {
@@ -199,7 +199,20 @@ B<Mangatory>. You need to add the plugin to list of plugins to execute.
         path        => 'thumbs',
     },
 
-B<Mandatory>. Takes a hashref as a value.
+    plug_image_resize => sub {
+        my ( $t, $q, $config ) = @_;
+        return {
+            images => [
+                qw/3300 3300 frog.png/
+            ],
+        }
+    },
+
+B<Mandatory>. Takes a hashref or a subref as a value. If subref is specified,
+its return value will be assigned to C<plug_image_resize> as if it was already there. If sub returns
+an C<undef>, then plugin will stop further processing. The C<@_> of the subref will
+contain (in that order): ZofCMS Tempalate hashref, query parameters hashref and
+L<App::ZofCMS::Config> object.
 The C<plug_image_resize> first-level key can be set in either (or both)
 ZofCMS Template and Main Config File files. If set in both, the values of keys that are set in
 ZofCMS Template take precedence. Possible keys/values are as follows:

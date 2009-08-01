@@ -1,6 +1,9 @@
 Revision history for App-ZofCMS-Plugin-ImageResize
 
-0.0101  July 5, 2009
+0.0103  July 31, 2009
+        Added missing part of docs
+
+0.0102  July 5, 2009
         Fixed docs to mention sub options
 
 0.0101  July 5, 2009
