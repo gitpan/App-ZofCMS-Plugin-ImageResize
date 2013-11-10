@@ -10,7 +10,7 @@ use File::Copy;
 
 use base 'App::ZofCMS::Plugin::Base';
 
-our $VERSION = '0.0103';
+our $VERSION = '0.0104';
 
 sub _key { 'plug_image_resize' }
 sub _defaults {
@@ -145,6 +145,8 @@ sub set_error {
 
 1;
 __END__
+
+=encoding utf8
 
 =head1 NAME
 

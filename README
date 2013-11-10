@@ -1,6 +1,7 @@
 App-ZofCMS-Plugin-ImageResize
 
-The module is a plugin for L<App::ZofCMS> that provides simple image resize capabilities.
+The module is a plugin for L<App::ZofCMS> that provides simple
+image resize capabilities.
 
 INSTALLATION
 

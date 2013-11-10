@@ -19,7 +19,9 @@ my $builder = Module::Build->new(
         'Image::Resize'             => 0.5,
         'File::Spec'                => 3.3,
         'File::Copy'                => 2.11,
+        'perl' => '5.006',
     },
+    configure_requires => { 'Module::Build' => 0 },
     add_to_cleanup      => [ 'App-ZofCMS-Plugin-ImageResize-*' ],
     create_makefile_pl => 'traditional',
 );
